@@ -1,0 +1,5 @@
+C:\Dev\iPayment.Core\iPayment.Core.AppEntry\iPayment.Core.AppEntry.Data\bin\Debug\iPayment.Core.AppEntry.Data.dll
+C:\Dev\iPayment.Core\iPayment.Core.AppEntry\iPayment.Core.AppEntry.Data\bin\Debug\iPayment.Core.AppEntry.Data.pdb
+C:\Dev\iPayment.Core\iPayment.Core.AppEntry\iPayment.Core.AppEntry.Data\obj\Debug\iPayment.Core.AppEntry.Data.csprojResolveAssemblyReference.cache
+C:\Dev\iPayment.Core\iPayment.Core.AppEntry\iPayment.Core.AppEntry.Data\obj\Debug\iPayment.Core.AppEntry.Data.dll
+C:\Dev\iPayment.Core\iPayment.Core.AppEntry\iPayment.Core.AppEntry.Data\obj\Debug\iPayment.Core.AppEntry.Data.pdb

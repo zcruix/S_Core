@@ -1,0 +1,107 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iPayment.Core.Services.AppEntry", "iPayment.Core.Services.AppEntry\iPayment.Core.Services.AppEntry.csproj", "{12AC4BDD-BF38-4DD7-B87B-560D92DC34CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iPayment.Core.Services.AppEntry.Tests", "iPayment.Core.Services.AppEntry.Tests\iPayment.Core.Services.AppEntry.Tests.csproj", "{9822D6FD-2528-46B6-9652-83057BD7E3B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iPayment.Core.AppEntry.DTO", "iPayment.Core.AppEntry.DTO\iPayment.Core.AppEntry.DTO.csproj", "{DF7AFC9A-1221-4434-9124-3B7A0B018E74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iPayment.Core.AppEntry.Data", "iPayment.Core.AppEntry.Data\iPayment.Core.AppEntry.Data.csproj", "{577988B9-150E-4683-B3EA-84F3ECBF2477}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iPayment.Core.AppEntry.Domain", "iPayment.Core.AppEntry.Domain\iPayment.Core.AppEntry.Domain.csproj", "{B545C097-DD68-4074-A985-ED944CAE5FDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iPayment.Core.AppEntry.Infrastructure", "iPayment.Core.AppEntry.Infrastructure\iPayment.Core.AppEntry.Infrastructure.csproj", "{12B1B556-8EA2-426B-A8AD-D1DA77D5032E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BC1999F6-DBCA-4D9E-8268-EF20C3AA9663}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iPayment.Core.AppEntry.Domain.Tests", "iPayment.Core.AppEntry.Domain.Tests\iPayment.Core.AppEntry.Domain.Tests.csproj", "{40C89AB9-995F-421D-B2B6-8386EB7616FE}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://iproject:8080/tfs/main
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = iPayment.Core.AppEntry.Data\\iPayment.Core.AppEntry.Data.csproj
+		SccProjectName1 = iPayment.Core.AppEntry.Data
+		SccLocalPath1 = iPayment.Core.AppEntry.Data
+		SccProjectUniqueName2 = iPayment.Core.AppEntry.Domain\\iPayment.Core.AppEntry.Domain.csproj
+		SccProjectName2 = iPayment.Core.AppEntry.Domain
+		SccLocalPath2 = iPayment.Core.AppEntry.Domain
+		SccProjectUniqueName3 = iPayment.Core.AppEntry.DTO\\iPayment.Core.AppEntry.DTO.csproj
+		SccProjectName3 = iPayment.Core.AppEntry.DTO
+		SccLocalPath3 = iPayment.Core.AppEntry.DTO
+		SccProjectUniqueName4 = iPayment.Core.AppEntry.Infrastructure\\iPayment.Core.AppEntry.Infrastructure.csproj
+		SccProjectName4 = iPayment.Core.AppEntry.Infrastructure
+		SccLocalPath4 = iPayment.Core.AppEntry.Infrastructure
+		SccProjectUniqueName5 = iPayment.Core.Services.AppEntry.Tests\\iPayment.Core.Services.AppEntry.Tests.csproj
+		SccProjectName5 = iPayment.Core.Services.AppEntry.Tests
+		SccLocalPath5 = iPayment.Core.Services.AppEntry.Tests
+		SccProjectUniqueName6 = iPayment.Core.Services.AppEntry\\iPayment.Core.Services.AppEntry.csproj
+		SccProjectName6 = iPayment.Core.Services.AppEntry
+		SccLocalPath6 = iPayment.Core.Services.AppEntry
+		SccProjectUniqueName7 = iPayment.Core.AppEntry.Domain.Tests\\iPayment.Core.AppEntry.Domain.Tests.csproj
+		SccProjectName7 = iPayment.Core.AppEntry.Domain.Tests
+		SccLocalPath7 = iPayment.Core.AppEntry.Domain.Tests
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		QA|Any CPU = QA|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12AC4BDD-BF38-4DD7-B87B-560D92DC34CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12AC4BDD-BF38-4DD7-B87B-560D92DC34CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12AC4BDD-BF38-4DD7-B87B-560D92DC34CF}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{12AC4BDD-BF38-4DD7-B87B-560D92DC34CF}.QA|Any CPU.Build.0 = QA|Any CPU
+		{12AC4BDD-BF38-4DD7-B87B-560D92DC34CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12AC4BDD-BF38-4DD7-B87B-560D92DC34CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9822D6FD-2528-46B6-9652-83057BD7E3B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9822D6FD-2528-46B6-9652-83057BD7E3B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9822D6FD-2528-46B6-9652-83057BD7E3B9}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{9822D6FD-2528-46B6-9652-83057BD7E3B9}.QA|Any CPU.Build.0 = QA|Any CPU
+		{9822D6FD-2528-46B6-9652-83057BD7E3B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9822D6FD-2528-46B6-9652-83057BD7E3B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF7AFC9A-1221-4434-9124-3B7A0B018E74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF7AFC9A-1221-4434-9124-3B7A0B018E74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF7AFC9A-1221-4434-9124-3B7A0B018E74}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{DF7AFC9A-1221-4434-9124-3B7A0B018E74}.QA|Any CPU.Build.0 = QA|Any CPU
+		{DF7AFC9A-1221-4434-9124-3B7A0B018E74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF7AFC9A-1221-4434-9124-3B7A0B018E74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{577988B9-150E-4683-B3EA-84F3ECBF2477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{577988B9-150E-4683-B3EA-84F3ECBF2477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{577988B9-150E-4683-B3EA-84F3ECBF2477}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{577988B9-150E-4683-B3EA-84F3ECBF2477}.QA|Any CPU.Build.0 = QA|Any CPU
+		{577988B9-150E-4683-B3EA-84F3ECBF2477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{577988B9-150E-4683-B3EA-84F3ECBF2477}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B545C097-DD68-4074-A985-ED944CAE5FDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B545C097-DD68-4074-A985-ED944CAE5FDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B545C097-DD68-4074-A985-ED944CAE5FDD}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{B545C097-DD68-4074-A985-ED944CAE5FDD}.QA|Any CPU.Build.0 = QA|Any CPU
+		{B545C097-DD68-4074-A985-ED944CAE5FDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B545C097-DD68-4074-A985-ED944CAE5FDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12B1B556-8EA2-426B-A8AD-D1DA77D5032E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12B1B556-8EA2-426B-A8AD-D1DA77D5032E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12B1B556-8EA2-426B-A8AD-D1DA77D5032E}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{12B1B556-8EA2-426B-A8AD-D1DA77D5032E}.QA|Any CPU.Build.0 = QA|Any CPU
+		{12B1B556-8EA2-426B-A8AD-D1DA77D5032E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12B1B556-8EA2-426B-A8AD-D1DA77D5032E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40C89AB9-995F-421D-B2B6-8386EB7616FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40C89AB9-995F-421D-B2B6-8386EB7616FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40C89AB9-995F-421D-B2B6-8386EB7616FE}.QA|Any CPU.ActiveCfg = Release|Any CPU
+		{40C89AB9-995F-421D-B2B6-8386EB7616FE}.QA|Any CPU.Build.0 = Release|Any CPU
+		{40C89AB9-995F-421D-B2B6-8386EB7616FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40C89AB9-995F-421D-B2B6-8386EB7616FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
