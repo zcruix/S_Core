@@ -35,6 +35,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>App_Data/XmlDocument.xml</DocumentationFile>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -45,6 +47,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=5.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentValidation.5.4.0.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -202,8 +214,15 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Context\IApplicationEntryControllerContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplicationEntryController.cs" />
+    <Compile Include="Context\ApplicationEntryControllerContext.cs" />
+    <Compile Include="Factories\GeneralInformationResponseFactory.cs" />
+    <Compile Include="Mappers\ApplicationFormMapper.cs" />
+    <Compile Include="Mappers\ErrorMapper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Mappers\MerchantGeneralInformationMapper.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -285,6 +304,24 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\iPayment.Core.AppEntry.Data\iPayment.Core.AppEntry.Data.csproj">
+      <Project>{577988b9-150e-4683-b3ea-84f3ecbf2477}</Project>
+      <Name>iPayment.Core.AppEntry.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iPayment.Core.AppEntry.Domain\iPayment.Core.AppEntry.Domain.csproj">
+      <Project>{B545C097-DD68-4074-A985-ED944CAE5FDD}</Project>
+      <Name>iPayment.Core.AppEntry.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iPayment.Core.AppEntry.DTO\iPayment.Core.AppEntry.DTO.csproj">
+      <Project>{df7afc9a-1221-4434-9124-3b7a0b018e74}</Project>
+      <Name>iPayment.Core.AppEntry.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iPayment.Core.AppEntry.Service\iPayment.Core.AppEntry.Service.csproj">
+      <Project>{965a1c8c-1a51-4999-882b-b49c8cbc3cc4}</Project>
+      <Name>iPayment.Core.AppEntry.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -329,6 +366,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

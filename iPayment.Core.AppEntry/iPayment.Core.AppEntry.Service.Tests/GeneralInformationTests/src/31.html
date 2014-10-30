@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>c:\dev\ipayment.core\branches\dev\ipayment.core.appentry\ipayment.core.appentry.data\repositories\applicationformrepository.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using iPayment.Core.AppEntry.Data.Interfaces;
+using iPayment.Core.AppEntry.Data.Store;
+using iPayment.Core.AppEntry.Domain.Interfaces;
+
+namespace iPayment.Core.AppEntry.Data.Repositories
+{
+    public class ApplicationFormRepository : IApplicationFormRepository
+    {
+        private readonly IApplicationFormDataStore _dataStore;
+
+        public ApplicationFormRepository(IApplicationFormDataStore dataStore = null)
+        {
+            _dataStore = dataStore ?? new ApplicationFormDataStore();
+        }
+
+        public IApplicationForm CreateApplicationForm(IApplicationForm applicationForm)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IApplicationForm GetApplicationForm(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveGeneralInformation(Guid id, IGeneralInformation generalInformation)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[18,9,18,10,0],[19,13,19,49,0],[23,9,23,10,0],[24,13,24,49,0],[28,9,28,10,0],[29,13,29,49,0],[12,9,12,85,1],[13,9,13,10,1],[14,13,14,70,1],[15,9,15,10,1]]);
+    </script>
+  </body>
+</html>

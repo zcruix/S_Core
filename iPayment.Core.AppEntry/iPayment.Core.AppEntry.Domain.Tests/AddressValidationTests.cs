@@ -197,7 +197,7 @@ namespace iPayment.Core.AppEntry.Domain.Tests
         private void ThenTheResultantErrorIs(string someError)
         {
             Assert.IsFalse(_isValidAddress);
-            Assert.AreEqual(someError, _address.ErrorContext.First().ErrorMessage);
+            Assert.AreEqual(someError, _address.Errors.First().ErrorMessage);
         }
 
         private IAddress _address;

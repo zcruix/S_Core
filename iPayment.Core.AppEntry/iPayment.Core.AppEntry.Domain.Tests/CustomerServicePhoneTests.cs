@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace iPayment.Core.AppEntry.Domain.Tests
 {
     [TestClass]
-    public class CustomerServicePhoneTests : MerchantGeneralInformationTestBase
+    public class CustomerServicePhoneTests : GeneralInformationTestBase
     {
         [TestMethod]        
         public void CustomerServicePhone_Cannot_Be_Null()
@@ -32,17 +32,17 @@ namespace iPayment.Core.AppEntry.Domain.Tests
 
         private void GivenAMerchantGeneralInformationWithInValidCustomerServicePhone()
         {
-            MerchantGeneralInformation.CustomerServicePhone.PhoneType = PhoneType.UnKnown;
+            GeneralInformation.CustomerServicePhone.PhoneType = PhoneType.UnKnown;
         }
 
         private void GivenAMerchantGeneralInformationWithCustomerServicePhoneType()
         {
-            MerchantGeneralInformation.CustomerServicePhone.PhoneType = PhoneType.CustomerService;
+            GeneralInformation.CustomerServicePhone.PhoneType = PhoneType.CustomerService;
         }
 
         private void GivenAMerchantGeneralInformationWithCustomerServicePhoneAsNull()
         {
-            MerchantGeneralInformation.CustomerServicePhone = null;
+            GeneralInformation.CustomerServicePhone = null;
         }       
     }
 }

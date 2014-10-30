@@ -5,9 +5,9 @@ namespace iPayment.Core.AppEntry.Domain.Tests
 {
     public class MerchantGeneralInformationFactory
     {
-        public static IMerchantGeneralInformation CreateMerchantGeneralInformation()
+        public static IGeneralInformation CreateMerchantGeneralInformation()
         {
-            return new MerchantGeneralInformation
+            return new GeneralInformation
             {
                 IsDoingBusinessAsNameSameAsLegalBusinessName = false,
                 IsMailingAddressSameAsBusinessAddress = false,

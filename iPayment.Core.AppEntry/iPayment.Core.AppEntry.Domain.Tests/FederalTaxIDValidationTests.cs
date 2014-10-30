@@ -113,7 +113,7 @@ namespace iPayment.Core.AppEntry.Domain.Tests
         private void ThenTheResultantErrorIs(string someError)
         {
             Assert.IsFalse(_isFederalTaxIdValid);
-            Assert.AreEqual(someError, _federalTaxId.ErrorContext.First().ErrorMessage);
+            Assert.AreEqual(someError, _federalTaxId.Errors.First().ErrorMessage);
         }
 
         private void ThenFederalTaxIdIsValid()

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>c:\dev\ipayment.core\branches\dev\ipayment.core.appentry\ipayment.core.appentry.domain\generalinformation.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System.Collections.Generic;
+using FluentValidation;
+using iPayment.Core.AppEntry.Domain.Interfaces;
+using iPayment.Core.AppEntry.Domain.Validators;
+using iPayment.Core.AppEntry.Domain.Extensions;
+
+namespace iPayment.Core.AppEntry.Domain
+{
+    public class GeneralInformation : ObjectBase, IGeneralInformation
+    {
+        private readonly AbstractValidator&lt;IGeneralInformation&gt; _generalInformationValidator;
+
+        public GeneralInformation(AbstractValidator&lt;IGeneralInformation&gt; generalInformationValidator = null)
+        {
+            _generalInformationValidator = generalInformationValidator ?? new GeneralInformationValidator();            
+        }
+
+        public string DoingBusinessAsName { get; set; }
+        public string LegalBusinessName { get; set; }
+        public string ContactFirstName { get; set; }
+        public string ContactLastName { get; set; }
+        public string BusinessEmail { get; set; }
+        public string BusinessWebsiteUrl { get; set; }
+        public string BusinessOperatingHours { get; set; }
+
+        public int NumberOfLocations { get; set; }
+
+        public IPhone BusinessPhone { get; set; }
+        public IPhone BusinessFax { get; set; }
+        public IPhone CustomerServicePhone { get; set; }
+
+        public IAddress BusinessAddress { get; set; }
+        public IAddress MailingAddress { get; set; }
+
+        public IContinuousResidence ContinuousResidenceAtTheBusinessAddress { get; set; }
+        public IFederalTaxId FederalTaxID { get; set; }
+
+        public bool IsMailingAddressSameAsBusinessAddress { get; set; }
+        public bool IsDoingBusinessAsNameSameAsLegalBusinessName { get; set; }
+
+        public List&lt;IError&gt; Errors { get; set; }
+
+        public bool IsValid()
+        {
+            Errors = new List&lt;IError&gt;();
+            var vr = _generalInformationValidator.Validate(this);
+            return vr.IsValid(Errors);
+        }        
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[13,9,13,109,1],[14,9,14,10,1],[15,13,15,109,1],[16,9,16,10,1],[44,9,44,10,1],[45,13,45,41,1],[46,13,46,66,1],[47,13,47,39,1],[48,9,48,10,1]]);
+    </script>
+  </body>
+</html>

@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace iPayment.Core.AppEntry.Domain.Tests
 {
     [TestClass]
-    public class ContactNameValidationTests : MerchantGeneralInformationTestBase
+    public class ContactNameValidationTests : GeneralInformationTestBase
     {
         [TestMethod]        
         public void ContactFirstName_Cannot_Be_Empty()
@@ -40,22 +40,22 @@ namespace iPayment.Core.AppEntry.Domain.Tests
 
         private void GivenAMerchantGeneralInformationWithContactFirstNameAsNull()
         {
-            MerchantGeneralInformation.ContactFirstName = null;
+            GeneralInformation.ContactFirstName = null;
         }
 
         private void GivenAMerchantGeneralInformationWithContactFirstNameEmpty()
         {
-            MerchantGeneralInformation.ContactFirstName = String.Empty;
+            GeneralInformation.ContactFirstName = String.Empty;
         }
 
         private void GivenAMerchantGeneralInformationWithContactLastNameAsNull()
         {
-            MerchantGeneralInformation.ContactLastName = null;
+            GeneralInformation.ContactLastName = null;
         }
 
         private void GivenAMerchantGeneralInformationWithContactLastNameEmpty()
         {
-            MerchantGeneralInformation.ContactLastName = String.Empty;
+            GeneralInformation.ContactLastName = String.Empty;
         }
 
         private const string FirstNameIsRequired = "First Name is required.";

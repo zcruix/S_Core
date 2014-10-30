@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>c:\dev\ipayment.core\branches\dev\ipayment.core.appentry\ipayment.core.appentry.domain\extensions\validationresultsextension.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System.Collections.Generic;
+using System.Linq;
+using FluentValidation.Results;
+using iPayment.Core.AppEntry.Domain.Interfaces;
+
+namespace iPayment.Core.AppEntry.Domain.Extensions
+{
+    public static class ValidationResultsExtension
+    {
+        public static bool IsValid(this ValidationResult vr,  ICollection&lt;IError&gt; errorList)
+        {
+            if (vr.IsValid || vr.Errors == null) return vr.IsValid;
+
+            var errors = vr.Errors.ToList();
+
+            errors.ForEach(
+                e =&gt;
+                    errorList.Add(new Error
+                    {
+                        ErrorMessage = e.ErrorMessage,
+                        FieldName = e.PropertyName,
+                        FieldValue = e.AttemptedValue,
+                        State = e.CustomState                        
+                    }));
+
+            return vr.IsValid;
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[11,9,11,10,1],[12,13,12,49,1],[12,50,12,68,1],[14,13,14,45,1],[16,13,18,21,1],[24,23,24,25,1],[26,13,26,31,1],[27,9,27,10,1],[18,21,24,23,1]]);
+    </script>
+  </body>
+</html>

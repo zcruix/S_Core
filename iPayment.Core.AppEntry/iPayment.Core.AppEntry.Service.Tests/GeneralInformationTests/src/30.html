@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>c:\dev\ipayment.core\branches\dev\ipayment.core.appentry\ipayment.core.appentry.data\store\applicationformdatastore.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Data.Entity.Migrations;
+using System.Linq;
+using iPayment.Core.AppEntry.Data.Exceptions;
+using iPayment.Core.AppEntry.Data.Extensions;
+using iPayment.Core.AppEntry.Data.Factories;
+using iPayment.Core.AppEntry.Data.Interfaces;
+using iPayment.Core.AppEntry.Data.Model;
+
+namespace iPayment.Core.AppEntry.Data.Store
+{
+    public class ApplicationFormDataStore : IApplicationFormDataStore
+    {
+        public ApplicationFormDataModel CreateApplicationForm()
+        {
+            using (var db = new ApplicationFormContext())
+                return db.SaveChanges(() =&gt; db.ApplicationForms.Add(ApplicationFormDataModelFactory.CreateApplicationFormDataModel()));
+        }
+
+        public bool AddOrUpdateGeneralInformation(Guid applicationId, GeneralInformationDataModel generalInfoDataModel)
+        {
+            generalInfoDataModel.ApplicationFormKey= GetApplicationFormKey(applicationId);
+            using (var db = new ApplicationFormContext())
+                db.SaveChanges&lt;GeneralInformationDataModel&gt;(() =&gt;
+                {
+                    db.GeneralInformations.AddOrUpdate(generalInfoDataModel);
+                    return null;
+                });
+            
+            return true;
+        }
+
+        public GeneralInformationDataModel GetGeneralInformation(Guid applicationId)
+        {
+            using (var db = new ApplicationFormContext())
+                return db.GeneralInformations.FastFind(GetApplicationFormKey(applicationId));
+        }
+
+        public void RemoveGeneralInformation(Guid applicationId)
+        {
+            using (var db = new ApplicationFormContext())
+            {
+                var generalInformation = GetGeneralInformation(applicationId);
+                if (generalInformation == null) throw new GeneralInformationNotFoundException();
+                db.GeneralInformations.Attach(generalInformation);
+                db.GeneralInformations.Remove(generalInformation);
+                db.SaveChanges();
+            }
+        }
+
+        public ApplicationFormDataModel GetApplicationForm(Guid applicationId)
+        {
+            using (var db = new ApplicationFormContext())
+            {
+                var applicationFormDataModel = db.ApplicationForms.SingleOrDefault(a =&gt; a.ApplicationId == applicationId);
+                if (applicationFormDataModel == null) throw new ApplicationFormNotFoundException();
+                return applicationFormDataModel;
+            }
+        }
+
+        private int GetApplicationFormKey(Guid applicationId)
+        {
+            return GetApplicationForm(applicationId).ApplicationFormKey;
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[36,9,36,10,0],[38,13,38,75,0],[39,20,39,57,0],[40,13,40,14,0],[41,17,42,108,0],[43,13,43,14,0],[44,13,44,39,0],[45,9,45,10,0],[15,9,15,10,1],[16,20,16,57,1],[17,13,17,14,1],[18,17,18,49,1],[19,17,19,45,1],[19,120,19,122,1],[21,9,21,10,1],[24,9,24,10,1],[25,13,25,92,1],[26,20,26,57,1],[27,13,27,14,1],[28,17,28,52,1],[29,17,29,57,1],[30,17,30,34,1],[31,13,31,14,1],[32,13,32,25,1],[33,9,33,10,1],[48,9,48,10,1],[49,20,49,57,1],[50,13,50,14,1],[51,17,51,114,1],[52,17,52,54,1],[52,55,52,100,1],[54,17,54,119,1],[56,17,56,43,1],[58,9,58,10,1],[19,45,19,120,1]]);
+    </script>
+  </body>
+</html>

@@ -4,6 +4,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Net.Http.Headers;
+using System.Web;
 using System.Web.Http;
 #if Handle_PageResultOfT
 using System.Web.Http.OData;
@@ -71,7 +72,12 @@ namespace iPayment.Core.Services.AppEntry.Areas.HelpPage
             //// Uncomment the following to correct the sample response when the action returns an HttpResponseMessage with ObjectContent<string>.
             //// The sample will be generated as if the controller named "Values" and action named "Post" were returning a string.
             //config.SetActualResponseType(typeof(string), "Values", "Post");
+
+            config.SetDocumentationProvider(new XmlDocumentationProvider(
+                HttpContext.Current.Server.MapPath("~/App_Data/XmlDocument.xml")));
+
         }
+
 
 #if Handle_PageResultOfT
         private static object GeneratePageResult(HelpPageSampleGenerator sampleGenerator, Type type)

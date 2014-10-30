@@ -5,6 +5,6 @@ namespace iPayment.Core.AppEntry.Domain.Interfaces
     public interface IValidator
     {
         bool IsValid();
-        List<IError> ErrorContext { get; set; }
+        List<IError> Errors { get; set; }        
     }
 }

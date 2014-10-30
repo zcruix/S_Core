@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
@@ -24,9 +23,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BC1999
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iPayment.Core.AppEntry.Domain.Tests", "iPayment.Core.AppEntry.Domain.Tests\iPayment.Core.AppEntry.Domain.Tests.csproj", "{40C89AB9-995F-421D-B2B6-8386EB7616FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iPayment.Core.AppEntry.Service", "iPayment.Core.AppEntry.Service\iPayment.Core.AppEntry.Service.csproj", "{965A1C8C-1A51-4999-882B-B49C8CBC3CC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iPayment.Core.AppEntry.Service.Tests", "iPayment.Core.AppEntry.Service.Tests\iPayment.Core.AppEntry.Service.Tests.csproj", "{2EA5A67B-D125-4480-9E35-72A91E6AE210}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iPayment.Core.AppEntry.Data.Tests", "iPayment.Core.AppEntry.Data.Tests\iPayment.Core.AppEntry.Data.Tests.csproj", "{AD8D430A-C89E-438F-A1C3-AC06A95D871C}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 8
+		SccNumberOfProjects = 11
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://iproject:8080/tfs/main
 		SccLocalPath0 = .
@@ -51,6 +56,15 @@ Global
 		SccProjectUniqueName7 = iPayment.Core.AppEntry.Domain.Tests\\iPayment.Core.AppEntry.Domain.Tests.csproj
 		SccProjectName7 = iPayment.Core.AppEntry.Domain.Tests
 		SccLocalPath7 = iPayment.Core.AppEntry.Domain.Tests
+		SccProjectUniqueName8 = iPayment.Core.AppEntry.Service\\iPayment.Core.AppEntry.Service.csproj
+		SccProjectName8 = iPayment.Core.AppEntry.Service
+		SccLocalPath8 = iPayment.Core.AppEntry.Service
+		SccProjectUniqueName9 = iPayment.Core.AppEntry.Service.Tests\\iPayment.Core.AppEntry.Service.Tests.csproj
+		SccProjectName9 = iPayment.Core.AppEntry.Service.Tests
+		SccLocalPath9 = iPayment.Core.AppEntry.Service.Tests
+		SccProjectUniqueName10 = iPayment.Core.AppEntry.Data.Tests\\iPayment.Core.AppEntry.Data.Tests.csproj
+		SccProjectName10 = iPayment.Core.AppEntry.Data.Tests
+		SccLocalPath10 = iPayment.Core.AppEntry.Data.Tests
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,6 +114,24 @@ Global
 		{40C89AB9-995F-421D-B2B6-8386EB7616FE}.QA|Any CPU.Build.0 = Release|Any CPU
 		{40C89AB9-995F-421D-B2B6-8386EB7616FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40C89AB9-995F-421D-B2B6-8386EB7616FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{965A1C8C-1A51-4999-882B-B49C8CBC3CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{965A1C8C-1A51-4999-882B-B49C8CBC3CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{965A1C8C-1A51-4999-882B-B49C8CBC3CC4}.QA|Any CPU.ActiveCfg = Release|Any CPU
+		{965A1C8C-1A51-4999-882B-B49C8CBC3CC4}.QA|Any CPU.Build.0 = Release|Any CPU
+		{965A1C8C-1A51-4999-882B-B49C8CBC3CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{965A1C8C-1A51-4999-882B-B49C8CBC3CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EA5A67B-D125-4480-9E35-72A91E6AE210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EA5A67B-D125-4480-9E35-72A91E6AE210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EA5A67B-D125-4480-9E35-72A91E6AE210}.QA|Any CPU.ActiveCfg = Release|Any CPU
+		{2EA5A67B-D125-4480-9E35-72A91E6AE210}.QA|Any CPU.Build.0 = Release|Any CPU
+		{2EA5A67B-D125-4480-9E35-72A91E6AE210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EA5A67B-D125-4480-9E35-72A91E6AE210}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD8D430A-C89E-438F-A1C3-AC06A95D871C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD8D430A-C89E-438F-A1C3-AC06A95D871C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD8D430A-C89E-438F-A1C3-AC06A95D871C}.QA|Any CPU.ActiveCfg = Release|Any CPU
+		{AD8D430A-C89E-438F-A1C3-AC06A95D871C}.QA|Any CPU.Build.0 = Release|Any CPU
+		{AD8D430A-C89E-438F-A1C3-AC06A95D871C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD8D430A-C89E-438F-A1C3-AC06A95D871C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>c:\dev\ipayment.core\branches\dev\ipayment.core.appentry\ipayment.core.appentry.domain\federaltaxid.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System.Collections.Generic;
+using FluentValidation;
+using iPayment.Core.AppEntry.Domain.Enums;
+using iPayment.Core.AppEntry.Domain.Extensions;
+using iPayment.Core.AppEntry.Domain.Interfaces;
+using iPayment.Core.AppEntry.Domain.Validators;
+
+namespace iPayment.Core.AppEntry.Domain
+{
+    public class FederalTaxId : IFederalTaxId
+    {
+        private readonly AbstractValidator&lt;IFederalTaxId&gt; _federalTaxIdValidator;
+
+        public FederalTaxId(AbstractValidator&lt;IFederalTaxId&gt; federalTaxIdValidator = null)
+        {
+            _federalTaxIdValidator = federalTaxIdValidator ?? new FederalTaxIdValidator();            
+        }
+
+        public string Number { get; set; }
+        public TaxIdType TaxIdType { get; set; }
+        public List&lt;IError&gt; Errors { get; set; }
+
+        public bool IsValid()
+        {
+            Errors = new List&lt;IError&gt;();
+            var vr = _federalTaxIdValidator.Validate(this);
+            return vr.IsValid(Errors);
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[14,9,14,91,1],[15,9,15,10,1],[16,13,16,91,1],[17,9,17,10,1],[24,9,24,10,1],[25,13,25,41,1],[26,13,26,60,1],[27,13,27,39,1],[28,9,28,10,1]]);
+    </script>
+  </body>
+</html>

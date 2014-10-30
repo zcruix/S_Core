@@ -15,6 +15,8 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -83,10 +85,12 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\ValidationResultsExtension.cs" />
     <Compile Include="FederalTaxId.cs" />
+    <Compile Include="GeneralInformation.cs" />
     <Compile Include="Interfaces\IAddress.cs" />
     <Compile Include="Interfaces\IAddressValidator.cs" />
     <Compile Include="Interfaces\IAgent.cs" />
     <Compile Include="Interfaces\IAttachment.cs" />
+    <Compile Include="Interfaces\IAudit.cs" />
     <Compile Include="Interfaces\IBusinessCategory.cs" />
     <Compile Include="Interfaces\IBusinessInformation.cs" />
     <Compile Include="Interfaces\ICardReader.cs" />
@@ -99,10 +103,10 @@
     <Compile Include="Interfaces\IFederalTaxId.cs" />
     <Compile Include="Interfaces\IFederalTaxIdValidator.cs" />
     <Compile Include="Interfaces\IGatewayInformation.cs" />
+    <Compile Include="Interfaces\IGeneralInformation.cs" />
     <Compile Include="Interfaces\IMarketingMethods.cs" />
-    <Compile Include="Interfaces\IMerchantApplicationForm.cs" />
+    <Compile Include="Interfaces\IApplicationForm.cs" />
     <Compile Include="Interfaces\IMerchantApplicationFormTemplate.cs" />
-    <Compile Include="Interfaces\IMerchantGeneralInformation.cs" />
     <Compile Include="Interfaces\IMerchantGeneralInformationValidator.cs" />
     <Compile Include="Interfaces\IMerchantProcessingHistory.cs" />
     <Compile Include="Interfaces\IPhone.cs" />
@@ -117,21 +121,28 @@
     <Compile Include="Interfaces\ITerminal.cs" />
     <Compile Include="Interfaces\ITerminalInformation.cs" />
     <Compile Include="Interfaces\IValidator.cs" />
-    <Compile Include="MerchantApplicationForm.cs" />
-    <Compile Include="MerchantGeneralInformation.cs" />
+    <Compile Include="ApplicationForm.cs" />
+    <Compile Include="ObjectBase.cs" />
     <Compile Include="Phone.cs" />
     <Compile Include="Principal.cs" />
     <Compile Include="PrincipalInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\AddressValidator.cs" />
     <Compile Include="Validators\FederalTaxIdValidator.cs" />
-    <Compile Include="Validators\MerchantGeneralInformationValidator.cs" />
+    <Compile Include="Validators\GeneralInformationValidator.cs" />
     <Compile Include="Validators\PhoneValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>c:\dev\ipayment.core\branches\dev\ipayment.core.appentry\ipayment.core.appentry.data\extensions\dbcontextextensions.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Data.Entity;
+using System.Linq;
+using iPayment.Core.AppEntry.Data.Model;
+
+namespace iPayment.Core.AppEntry.Data.Extensions
+{
+    public static class DbContextExtensions
+    {
+        public static T SaveChanges&lt;T&gt;(this DbContext db, Func&lt;T&gt; doOperation)
+        {
+            var result = doOperation.Invoke();
+            db.SaveChanges();
+            return result;
+        }
+     
+        public static T FastFind&lt;T&gt;(this DbSet&lt;T&gt; dbSet, int applicationFormKey)
+            where T : ApplicationFormSectionBase
+        {
+            var entity = dbSet.Local.SingleOrDefault(x =&gt; x.ApplicationFormKey == applicationFormKey);
+            return entity ?? dbSet.SingleOrDefault(x =&gt; x.ApplicationFormKey == applicationFormKey);
+        }
+   }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[9,9,9,10,1],[10,13,10,47,1],[11,13,11,30,1],[12,13,12,27,1],[13,9,13,10,1]]);
+    </script>
+  </body>
+</html>

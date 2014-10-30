@@ -44,6 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,7 +54,37 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="BuildEventScripts\PostBuild.bat" />
+    <Compile Include="Requests\ApplicationFormRequestDto.cs" />
+    <Compile Include="Templates\Address.cs" />
+    <Compile Include="Requests\ApplicationFormResponseDto.cs" />
+    <Compile Include="Templates\ContinuousResidence.cs" />
+    <Compile Include="Enums\AddressType.cs" />
+    <Compile Include="Enums\BusinessLocation.cs" />
+    <Compile Include="Enums\CardReaderModel.cs" />
+    <Compile Include="Enums\CheckReaderModel.cs" />
+    <Compile Include="Enums\Condition.cs" />
+    <Compile Include="Enums\CustomerReturnPolicy.cs" />
+    <Compile Include="Enums\DialOutPhoneCode.cs" />
+    <Compile Include="Enums\ErrorSeverity.cs" />
+    <Compile Include="Enums\MasterCardVisaTransactionSettlementDateOption.cs" />
+    <Compile Include="Enums\MerchantType.cs" />
+    <Compile Include="Enums\Ownership.cs" />
+    <Compile Include="Enums\PhoneType.cs" />
+    <Compile Include="Enums\PinPadCable.cs" />
+    <Compile Include="Enums\Processor.cs" />
+    <Compile Include="Enums\ProductOrServiceFulfillmentSource.cs" />
+    <Compile Include="Enums\ResidentialStatus.cs" />
+    <Compile Include="Enums\TaxIdType.cs" />
+    <Compile Include="Enums\WirelessBand.cs" />
+    <Compile Include="ErrorDto.cs" />
+    <Compile Include="Templates\FederalTaxId.cs" />
+    <Compile Include="GeneralInformationDto.cs" />
+    <Compile Include="ObjectDtoBase.cs" />
+    <Compile Include="Templates\Phone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Responses\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

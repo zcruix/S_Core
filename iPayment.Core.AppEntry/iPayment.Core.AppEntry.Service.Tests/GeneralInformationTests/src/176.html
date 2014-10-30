@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>c:\dev\ipayment.core\branches\dev\ipayment.core.appentry\ipayment.core.services.appentry\context\applicationentrycontrollercontext.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using iPayment.Core.AppEntry.Service;
+using iPayment.Core.AppEntry.Service.Interfaces;
+
+namespace iPayment.Core.Services.AppEntry.Context
+{
+    public class ApplicationEntryControllerContext : IApplicationEntryControllerContext
+    {
+        public string ErrorResponse { get; set; }
+
+        public IApplicationService AppService { get; private set; }
+
+        public ApplicationEntryControllerContext(IApplicationService applicationService = null)
+        {
+            AppService = applicationService ?? new ApplicationService();
+        }        
+
+        public HttpResponseMessage CreateErrorResponse(ApiController controller, string errorResponse)
+        {
+            return controller.Request.CreateErrorResponse(HttpStatusCode.InternalServerError, errorResponse);
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[15,9,15,96,1],[16,9,16,10,1],[17,13,17,73,1],[18,9,18,10,1],[21,9,21,10,1],[22,13,22,110,1],[23,9,23,10,1]]);
+    </script>
+  </body>
+</html>

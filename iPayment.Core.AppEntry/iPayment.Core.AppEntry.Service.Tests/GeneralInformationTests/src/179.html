@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>c:\dev\ipayment.core\branches\dev\ipayment.core.appentry\ipayment.core.services.appentry\mappers\errormapper.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using AutoMapper;
+using iPayment.Core.AppEntry.Domain.Interfaces;
+using iPayment.Core.AppEntry.DTO;
+
+namespace iPayment.Core.Services.AppEntry.Mappers
+{
+    public static class ErrorMapper
+    {
+        public static ErrorDto MapErrorDto(IError error)
+        {
+            return Mapper.DynamicMap&lt;ErrorDto&gt;(error);
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[10,9,10,10,1],[11,13,11,55,1],[12,9,12,10,1]]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>c:\dev\ipayment.core\branches\dev\ipayment.core.appentry\ipayment.core.appentry.service\extensions\servicecontextextension.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using iPayment.Core.AppEntry.Service.Enums;
+using iPayment.Core.AppEntry.Service.Interfaces;
+
+namespace iPayment.Core.AppEntry.Service.Extensions
+{
+    public static class ServiceContextExtension
+    {
+        public static void InvokeSave(this IApplicationServiceContext context, Action doSave, Status status)
+        {
+            doSave.Invoke();
+            context.Status = status;
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[10,9,10,10,1],[11,13,11,29,1],[12,13,12,37,1],[13,9,13,10,1]]);
+    </script>
+  </body>
+</html>

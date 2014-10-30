@@ -18,13 +18,13 @@ namespace iPayment.Core.AppEntry.Domain
 
         public string Number { get; set; }
         public PhoneType PhoneType { get; set; }
-        public List<IError> ErrorContext { get; set; }
+        public List<IError> Errors { get; set; }
 
         public bool IsValid()
         {
-            ErrorContext = new List<IError>();
+            Errors = new List<IError>();
             var vr = _phoneValidator.Validate(this);
-            return vr.IsValid(ErrorContext);
+            return vr.IsValid(Errors);
         }
     }
 }

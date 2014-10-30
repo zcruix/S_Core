@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace iPayment.Core.AppEntry.Domain.Tests
 {
     [TestClass]
-    public class BusinessPhoneTests : MerchantGeneralInformationTestBase
+    public class BusinessPhoneTests : GeneralInformationTestBase
     {
         [TestMethod]        
         public void BusinessPhone_Cannot_Be_Null()
@@ -33,19 +33,19 @@ namespace iPayment.Core.AppEntry.Domain.Tests
 
         private void GivenAMerchantGeneralInformationWithInValidBusinessPhone()
         {
-            MerchantGeneralInformation.BusinessPhone.PhoneType = PhoneType.UnKnown;
+            GeneralInformation.BusinessPhone.PhoneType = PhoneType.UnKnown;
         }
 
 
         private void GivenAMerchantGeneralInformationWithBusinessPhoneType()
         {
-            MerchantGeneralInformation.BusinessPhone.PhoneType = PhoneType.Business;
+            GeneralInformation.BusinessPhone.PhoneType = PhoneType.Business;
         }
 
 
         private void GivenAMerchantGeneralInformationWithBusinessPhoneAsNull()
         {
-            MerchantGeneralInformation.BusinessPhone = null;            
+            GeneralInformation.BusinessPhone = null;            
         }
     }
 }

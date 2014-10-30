@@ -1,4 +1,4 @@
-C:\Dev\iPayment.Core\iPayment.Core.AppEntry\iPayment.Core.AppEntry.DTO\bin\Debug\iPayment.Core.AppEntry.DTO.dll
-C:\Dev\iPayment.Core\iPayment.Core.AppEntry\iPayment.Core.AppEntry.DTO\bin\Debug\iPayment.Core.AppEntry.DTO.pdb
-C:\Dev\iPayment.Core\iPayment.Core.AppEntry\iPayment.Core.AppEntry.DTO\obj\Debug\iPayment.Core.AppEntry.DTO.dll
-C:\Dev\iPayment.Core\iPayment.Core.AppEntry\iPayment.Core.AppEntry.DTO\obj\Debug\iPayment.Core.AppEntry.DTO.pdb
+C:\Dev\iPayment.Core\Branches\Dev\iPayment.Core.AppEntry\iPayment.Core.AppEntry.DTO\bin\Debug\iPayment.Core.AppEntry.DTO.dll
+C:\Dev\iPayment.Core\Branches\Dev\iPayment.Core.AppEntry\iPayment.Core.AppEntry.DTO\bin\Debug\iPayment.Core.AppEntry.DTO.pdb
+C:\Dev\iPayment.Core\Branches\Dev\iPayment.Core.AppEntry\iPayment.Core.AppEntry.DTO\obj\Debug\iPayment.Core.AppEntry.DTO.dll
+C:\Dev\iPayment.Core\Branches\Dev\iPayment.Core.AppEntry\iPayment.Core.AppEntry.DTO\obj\Debug\iPayment.Core.AppEntry.DTO.pdb

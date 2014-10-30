@@ -23,13 +23,13 @@ namespace iPayment.Core.AppEntry.Domain
         public string Zipcode { get; set; }
         public string County { get; set; }
         public AddressType AddressType { get; set; }
-        public List<IError> ErrorContext { get; set; }
+        public List<IError> Errors { get; set; }
 
         public bool IsValid()
         {
-            ErrorContext = new List<IError>();
+            Errors = new List<IError>();
             var vr = _addressValidator.Validate(this);
-            return vr.IsValid(ErrorContext);
+            return vr.IsValid(Errors);
         }        
     }
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>c:\dev\ipayment.core\branches\dev\ipayment.core.appentry\ipayment.core.appentry.service\extensions\statusextension.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using iPayment.Core.AppEntry.Service.Enums;
+
+namespace iPayment.Core.AppEntry.Service.Extensions
+{
+    public static class StatusExtension
+    {
+        internal static Status OperationStatus(this Object obj)
+        {
+            return obj == null ? Status.Created : Status.Updated;
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[9,9,9,10,1],[10,13,10,66,1],[11,9,11,10,1]]);
+    </script>
+  </body>
+</html>

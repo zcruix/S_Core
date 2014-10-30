@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>c:\dev\ipayment.core\branches\dev\ipayment.core.appentry\ipayment.core.appentry.domain\validators\generalinformationvalidator.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using FluentValidation;
+using iPayment.Core.AppEntry.Domain.Interfaces;
+
+namespace iPayment.Core.AppEntry.Domain.Validators
+{
+    public class GeneralInformationValidator : AbstractValidator&lt;IGeneralInformation&gt;
+    {        
+        public GeneralInformationValidator()
+        {
+            ValidateFirstNameAndLastName();
+
+            ValidateDoingBusinessAsAndLegalBusinessName();
+
+            ValidateFederalTaxId();
+            
+            ValidateBusinessPhone();
+
+            ValidateCustomerServicePhone();
+
+            ValidateBusinessAddressAndMailingAddress();
+
+            ValidateNumberOfBusinessLocations();
+
+            ValidateBusinessEmailAddress();                                                
+        }
+
+        private void ValidateBusinessEmailAddress()
+        {
+            RuleFor(merchantInfo =&gt; merchantInfo.BusinessEmail)
+                .EmailAddress()
+                .WithMessage(&quot;Business Email address has to be a valid email address.&quot;);
+        }
+
+        private void ValidateNumberOfBusinessLocations()
+        {
+            RuleFor(merchantInfo =&gt; merchantInfo.NumberOfLocations)
+                .InclusiveBetween(0, 99999)
+                .WithMessage(&quot;Number of locations has to be a valid number between 0 and 99999.&quot;);
+        }
+
+        private void ValidateBusinessAddressAndMailingAddress()
+        {
+            RuleFor(merchantInfo =&gt; merchantInfo.IsMailingAddressSameAsBusinessAddress)
+                .Must((merchantInfo, isMailingAddressSameAsBusinessAddress) =&gt; SwapAddresses(merchantInfo));
+
+            ValidateBusinessAddress();
+
+            ValidateMailingAddress();
+        }
+
+        private void ValidateMailingAddress()
+        {
+            RuleFor(merchantInfo =&gt; merchantInfo.MailingAddress)
+                .Cascade(CascadeMode.StopOnFirstFailure)
+                .NotNull()
+                .WithMessage(&quot;Mailing address is required.&quot;)
+                .SetValidator(new AddressValidator());
+        }
+
+        private void ValidateBusinessAddress()
+        {
+            RuleFor(merchantInfo =&gt; merchantInfo.BusinessAddress)
+                .Cascade(CascadeMode.StopOnFirstFailure)
+                .NotNull()
+                .WithMessage(&quot;Business address is required.&quot;)
+                .SetValidator(new AddressValidator());
+        }
+
+        private void ValidateCustomerServicePhone()
+        {
+            RuleFor(merchantInfo =&gt; merchantInfo.CustomerServicePhone)
+                .Cascade(CascadeMode.StopOnFirstFailure)
+                .NotNull()
+                .WithMessage(&quot;Customer service phone number is required.&quot;)
+                .SetValidator(new PhoneValidator());
+        }
+
+        private void ValidateBusinessPhone()
+        {
+            RuleFor(merchantInfo =&gt; merchantInfo.BusinessPhone)
+                .Cascade(CascadeMode.StopOnFirstFailure)
+                .NotNull()
+                .WithMessage(&quot;Business phone number is required.&quot;)
+                .SetValidator(new PhoneValidator());
+        }
+
+        private void ValidateFederalTaxId()
+        {
+            RuleFor(merchantInfo =&gt; merchantInfo.FederalTaxID)
+                .Cascade(CascadeMode.StopOnFirstFailure)
+                .NotNull()
+                .WithMessage(&quot;Federal Tax Id is required.&quot;)
+                .SetValidator(new FederalTaxIdValidator());
+        }
+
+        private void ValidateDoingBusinessAsAndLegalBusinessName()
+        {
+            RuleFor(merchantInfo =&gt; merchantInfo.IsDoingBusinessAsNameSameAsLegalBusinessName)
+                .Must((merchantInfo, isDoingBusinessAsNameSameAsLegalBusinessName) =&gt; SwapBusinessNames(merchantInfo));
+
+            ValidateDoingBusinessAs();
+
+            ValidateLegalBusinessName();
+        }
+
+        private void ValidateLegalBusinessName()
+        {
+            RuleFor(merchantInfo =&gt; merchantInfo.LegalBusinessName)
+                .NotEmpty()
+                .WithMessage(&quot;Legal Business Name is required.&quot;);
+        }
+
+        private void ValidateDoingBusinessAs()
+        {
+            RuleFor(merchantInfo =&gt; merchantInfo.DoingBusinessAsName)
+                .NotEmpty()
+                .WithMessage(&quot;Doing Business As Name is required.&quot;);
+        }
+
+        private void ValidateFirstNameAndLastName()
+        {
+            RuleFor(merchantInfo =&gt; merchantInfo.ContactFirstName).NotEmpty().WithMessage(&quot;First Name is required.&quot;);
+            RuleFor(merchantInfo =&gt; merchantInfo.ContactLastName).NotEmpty().WithMessage(&quot;Last Name is required.&quot;);
+        }
+
+        private static bool SwapAddresses(IGeneralInformation merchant)
+        {
+            if (!merchant.IsMailingAddressSameAsBusinessAddress) return true;
+
+            if (merchant.MailingAddress != null)
+                merchant.BusinessAddress = merchant.MailingAddress;
+
+            if (merchant.BusinessAddress != null)
+                merchant.MailingAddress = merchant.BusinessAddress;
+            return true;
+        }
+
+        private static bool SwapBusinessNames(IGeneralInformation merchant)
+        {
+            if (!merchant.IsDoingBusinessAsNameSameAsLegalBusinessName) return true;
+
+            if (!string.IsNullOrEmpty(merchant.DoingBusinessAsName))
+                merchant.LegalBusinessName = merchant.DoingBusinessAsName;
+
+            if (!string.IsNullOrEmpty(merchant.LegalBusinessName))
+                merchant.DoingBusinessAsName = merchant.LegalBusinessName;
+
+            return true;
+        }           
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[8,9,8,45,1],[9,9,9,10,1],[10,13,10,44,1],[12,13,12,59,1],[14,13,14,36,1],[16,13,16,37,1],[18,13,18,44,1],[20,13,20,56,1],[22,13,22,49,1],[24,13,24,44,1],[25,9,25,10,1],[28,9,28,10,1],[29,13,31,89,1],[32,9,32,10,1],[35,9,35,10,1],[36,13,38,99,1],[39,9,39,10,1],[42,9,42,10,1],[43,13,44,80,1],[44,107,44,109,1],[46,13,46,39,1],[48,13,48,38,1],[49,9,49,10,1],[52,9,52,10,1],[53,13,57,55,1],[58,9,58,10,1],[61,9,61,10,1],[62,13,66,55,1],[67,9,67,10,1],[70,9,70,10,1],[71,13,75,53,1],[76,9,76,10,1],[79,9,79,10,1],[80,13,84,53,1],[85,9,85,10,1],[88,9,88,10,1],[89,13,93,60,1],[94,9,94,10,1],[97,9,97,10,1],[98,13,99,87,1],[99,118,99,120,1],[101,13,101,39,1],[103,13,103,41,1],[104,9,104,10,1],[107,9,107,10,1],[108,13,110,66,1],[111,9,111,10,1],[114,9,114,10,1],[115,13,117,69,1],[118,9,118,10,1],[121,9,121,10,1],[122,13,122,118,1],[123,13,123,116,1],[124,9,124,10,1],[127,9,127,10,1],[128,13,128,65,1],[128,66,128,78,1],[130,13,130,49,1],[131,17,131,68,1],[133,13,133,50,1],[134,17,134,68,1],[135,13,135,25,1],[136,9,136,10,1],[139,9,139,10,1],[140,13,140,72,1],[140,73,140,85,1],[142,13,142,69,1],[143,17,143,75,1],[145,13,145,67,1],[146,17,146,75,1],[148,13,148,25,1],[149,9,149,10,1],[44,80,44,107,1],[99,87,99,118,1]]);
+    </script>
+  </body>
+</html>

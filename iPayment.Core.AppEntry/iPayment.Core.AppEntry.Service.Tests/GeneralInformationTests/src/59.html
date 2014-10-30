@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>c:\dev\ipayment.core\branches\dev\ipayment.core.appentry\ipayment.core.appentry.domain\validators\addressvalidator.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System.Text.RegularExpressions;
+using FluentValidation;
+using iPayment.Core.AppEntry.Domain.Enums;
+using iPayment.Core.AppEntry.Domain.Interfaces;
+
+namespace iPayment.Core.AppEntry.Domain.Validators
+{
+    public class AddressValidator : AbstractValidator&lt;IAddress&gt;
+    {
+        const string USZipCodeRegEx = @&quot;^\d{5}(?:-\d{4})?$&quot;;
+
+        public AddressValidator()
+        {
+            RuleFor(address =&gt; address.AddressType).NotEqual(AddressType.UnKnown).WithMessage(@&quot;AddressType cannot be UnKnown.&quot;);
+
+            RuleFor(address =&gt; address.AddressLine1).NotEmpty().WithMessage(@&quot;AddressLine1 cannot be empty or null.&quot;);                        
+            RuleFor(address =&gt; address.City).NotEmpty().WithMessage(@&quot;City cannot be empty or null.&quot;);
+            RuleFor(address =&gt; address.State).NotEmpty().WithMessage(@&quot;State cannot be empty or null.&quot;);
+            RuleFor(address =&gt; address.Zipcode)
+                .Cascade(CascadeMode.StopOnFirstFailure)
+                .NotEmpty()
+                .WithMessage(@&quot;Zipcode cannot be empty or null.&quot;)
+                .Must(z =&gt; z.Length &lt;= 10)
+                .WithMessage(@&quot;Zipcode cannot be more than 10 characters.&quot;)
+                .Matches(new Regex(USZipCodeRegEx))
+                .WithMessage(@&quot;Zipcode is not in the correct format. For example ... 99999 or 99999-111.&quot;);
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[12,9,12,34,1],[13,9,13,10,1],[14,13,14,130,1],[16,13,16,119,1],[17,13,17,103,1],[18,13,18,105,1],[19,13,23,28,1],[23,42,26,108,1],[27,9,27,10,1],[23,28,23,42,1]]);
+    </script>
+  </body>
+</html>

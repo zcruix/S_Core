@@ -75,7 +75,7 @@ namespace iPayment.Core.AppEntry.Domain.Tests
         private void ThenTheResultantErrorShouldBe(string someError)
         {
             Assert.IsFalse(_isValidPhone);
-            Assert.AreEqual(someError, _phone.ErrorContext.First().ErrorMessage);
+            Assert.AreEqual(someError, _phone.Errors.First().ErrorMessage);
         }
 
         private void GivenAPhoneThatHasPhoneNumberAsNull()

@@ -3,7 +3,7 @@
 namespace iPayment.Core.AppEntry.Domain.Tests
 {
     [TestClass]
-    public class BusinessBusinessEmailValidationTests : MerchantGeneralInformationTestBase  
+    public class BusinessBusinessEmailValidationTests : GeneralInformationTestBase  
     {
         private const string InValidEmailErrorMessage = @"Business Email address has to be a valid email address.";
 
@@ -113,7 +113,7 @@ namespace iPayment.Core.AppEntry.Domain.Tests
 
         private void GivenAnMerchantGeneralInformationWithBusinessEmail(string someBusinessEmail)
         {
-            MerchantGeneralInformation.BusinessEmail = someBusinessEmail;
+            GeneralInformation.BusinessEmail = someBusinessEmail;
         }
     }
 }

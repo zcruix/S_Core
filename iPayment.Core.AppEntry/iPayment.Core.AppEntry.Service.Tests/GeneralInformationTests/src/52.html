@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>c:\dev\ipayment.core\branches\dev\ipayment.core.appentry\ipayment.core.appentry.domain\address.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System.Collections.Generic;
+using FluentValidation;
+using iPayment.Core.AppEntry.Domain.Enums;
+using iPayment.Core.AppEntry.Domain.Extensions;
+using iPayment.Core.AppEntry.Domain.Interfaces;
+using iPayment.Core.AppEntry.Domain.Validators;
+
+namespace iPayment.Core.AppEntry.Domain
+{
+    public class Address : IAddress
+    {
+        private readonly AbstractValidator&lt;IAddress&gt; _addressValidator;
+
+        public Address(AbstractValidator&lt;IAddress&gt; addressValidator = null)
+        {
+            _addressValidator = addressValidator ?? new AddressValidator();            
+        }
+
+        public string AddressLine1 { get; set; }
+        public string AddressLine2 { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zipcode { get; set; }
+        public string County { get; set; }
+        public AddressType AddressType { get; set; }
+        public List&lt;IError&gt; Errors { get; set; }
+
+        public bool IsValid()
+        {
+            Errors = new List&lt;IError&gt;();
+            var vr = _addressValidator.Validate(this);
+            return vr.IsValid(Errors);
+        }        
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[14,9,14,76,1],[15,9,15,10,1],[16,13,16,76,1],[17,9,17,10,1],[29,9,29,10,1],[30,13,30,41,1],[31,13,31,55,1],[32,13,32,39,1],[33,9,33,10,1]]);
+    </script>
+  </body>
+</html>

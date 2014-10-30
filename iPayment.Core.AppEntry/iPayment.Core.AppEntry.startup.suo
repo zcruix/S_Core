@@ -1,4 +1,7 @@
 {
-  "MRU": [],
+  "MRU": [
+    "iPayment.Core.Services.AppEntry",
+    "iPayment.Core.AppEntry.Data"
+  ],
   "MultiProjectConfigurations": {}
 }

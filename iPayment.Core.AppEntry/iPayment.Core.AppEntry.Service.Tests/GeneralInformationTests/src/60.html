@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>c:\dev\ipayment.core\branches\dev\ipayment.core.appentry\ipayment.core.appentry.domain\validators\federaltaxidvalidator.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using FluentValidation;
+using iPayment.Core.AppEntry.Domain.Enums;
+using iPayment.Core.AppEntry.Domain.Extensions;
+using iPayment.Core.AppEntry.Domain.Interfaces;
+
+namespace iPayment.Core.AppEntry.Domain.Validators
+{
+    public class FederalTaxIdValidator : AbstractValidator&lt;IFederalTaxId&gt;
+    {
+        public FederalTaxIdValidator()
+        {
+            RuleFor(taxid =&gt; taxid.TaxIdType).NotEqual(TaxIdType.UnKnown).WithMessage(@&quot;TaxIdType cannot be UnKnown.&quot;);
+
+            RuleFor(taxid =&gt; taxid.Number)
+                .Cascade(CascadeMode.StopOnFirstFailure)
+                .NotEmpty()
+                .WithMessage(@&quot;Tax Id Number cannot be empty or null.&quot;)
+                .Must(tin =&gt; tin.IsNumeric())
+                .WithMessage(@&quot;Taxid has non numeric digits.&quot;)
+                .Length(9)
+                .WithMessage(@&quot;Federal Tax Id should be exactly 9 numeric digits.&quot;);
+        }
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[10,9,10,39,1],[11,9,11,10,1],[12,13,12,120,1],[14,13,18,30,1],[18,45,21,85,1],[22,9,22,10,1],[18,30,18,45,1]]);
+    </script>
+  </body>
+</html>
